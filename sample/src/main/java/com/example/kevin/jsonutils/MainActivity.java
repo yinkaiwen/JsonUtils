@@ -16,6 +16,8 @@ import com.example.kevin.jsonutils.javabean.UserList;
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
     private static final String tag = MainActivity.class.getSimpleName();
+    private JsonUtils mJsonUtils = new JsonUtils();
+
     private Button mBtn1;
     private Button mBtn2;
     private Button mBtn3;
@@ -31,6 +33,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         setContentView(R.layout.activity_main);
 
         bindViews();
+
+        JsonUtils jsonUtils = new JsonUtils();
+        User user = jsonUtils.jsonString(User.class, "Json String");
     }
 
 
@@ -54,38 +59,36 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         mBtn5.setOnClickListener(this);
     }
 
+
+
     @Override
     public void onClick(View v) {
         String rs = null;
         switch (v.getId()) {
             case R.id.btn1:
                 mTv_json.setText(JsonBean.user);
-                JsonUtils<User> jsonUtils = new JsonUtils<>();
-                User user = jsonUtils.jsonString(User.class, JsonBean.user);
+                User user = mJsonUtils.jsonString(User.class, JsonBean.user);
                 rs = user.toString();
                 break;
             case R.id.btn2:
                 mTv_json.setText(JsonBean.user_list);
-                JsonUtils<UserList> jsonUtils1 = new JsonUtils<>();
+                JsonUtils jsonUtils1 = new JsonUtils();
                 UserList userList = jsonUtils1.jsonString(UserList.class, JsonBean.user_list);
                 rs = userList.toString();
                 break;
             case R.id.btn3:
                 mTv_json.setText(JsonBean.health_info);
-                JsonUtils<HealthInfo> jsonUtils2 = new JsonUtils<>();
-                HealthInfo healthInfo = jsonUtils2.jsonString(HealthInfo.class, JsonBean.health_info);
+                HealthInfo healthInfo = mJsonUtils.jsonString(HealthInfo.class, JsonBean.health_info);
                 rs = healthInfo.toString();
                 break;
             case R.id.btn4:
                 mTv_json.setText(JsonBean.user_no_name);
-                JsonUtils<User> jsonUtils3 = new JsonUtils<>();
-                User user1 = jsonUtils3.jsonString(User.class, JsonBean.user_no_name);
+                User user1 = mJsonUtils.jsonString(User.class, JsonBean.user_no_name);
                 rs = user1.toString();
                 break;
             case R.id.btn5:
                 mTv_json.setText(JsonBean.complext_list);
-                JsonUtils<ComplexList> jsonUtils4 = new JsonUtils<>();
-                ComplexList complexList = jsonUtils4.jsonString(ComplexList.class, JsonBean.complext_list);
+                ComplexList complexList = mJsonUtils.jsonString(ComplexList.class, JsonBean.complext_list);
                 rs = complexList.toString();
                 break;
         }

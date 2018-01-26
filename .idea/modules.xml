@@ -3,8 +3,9 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/android_studio_work_place.iml" filepath="$PROJECT_DIR$/android_studio_work_place.iml" />
+      <module fileurl="file://D:\develop\android_studio_work_place\sample\app.iml" filepath="D:\develop\android_studio_work_place\sample\app.iml" />
       <module fileurl="file://$PROJECT_DIR$/jsonutils/jsonutils.iml" filepath="$PROJECT_DIR$/jsonutils/jsonutils.iml" />
-      <module fileurl="file://$PROJECT_DIR$/sample/app.iml" filepath="$PROJECT_DIR$/sample/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/sample/sample.iml" filepath="$PROJECT_DIR$/sample/sample.iml" />
     </modules>
   </component>
 </project>

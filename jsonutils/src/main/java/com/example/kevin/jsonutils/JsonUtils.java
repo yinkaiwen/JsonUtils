@@ -13,13 +13,13 @@ import java.util.List;
  * https://github.com/yinkaiwen
  */
 
-public class JsonUtils<T> {
+public class JsonUtils {
     public static final String UID = "serialVersionUID";
 
     public JsonUtils() {
     }
 
-    public T jsonString(Class<T> cls, String json) {
+    public <T> T jsonString(Class<T> cls, String json) {
         JSONObject obj = null;
         T o = null;
         try {
