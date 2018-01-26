@@ -4,6 +4,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.io.InputStream;
 import java.lang.reflect.Field;
 import java.util.ArrayList;
 import java.util.List;
@@ -19,6 +20,15 @@ public class JsonUtils {
     public JsonUtils() {
     }
 
+    /**
+     * If json is more than memory,will cause OOM.
+     * Most of time,this situation will not happen.
+     *
+     * @param cls
+     * @param json
+     * @param <T>
+     * @return
+     */
     public <T> T jsonString(Class<T> cls, String json) {
         JSONObject obj = null;
         T o = null;
@@ -34,6 +44,16 @@ public class JsonUtils {
             e.printStackTrace();
         }
         return o;
+    }
+
+    public <T> T jsonBytes(Class<T> cls, byte[] bytes) {
+        String json = JsonStringFactory.getString(bytes);
+        return jsonString(cls, json);
+    }
+
+    public <T> T jsonInputStream(Class<T> cls, InputStream inputStream) {
+        String json = JsonStringFactory.getString(inputStream);
+        return jsonString(cls, json);
     }
 
     /**
