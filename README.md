@@ -1,5 +1,7 @@
 # Format
-JsonUtils jsonUtils = new JsonUtils();</br>
-User user = jsonUtils.jsonString(User.class, "Json String");</br>
-User user = jsonUtils.jsonString(User.class, byte[]);</br>
-User user = jsonUtils.jsonString(User.class, InputStream);</br>
+```
+JsonUtils jsonUtils = new JsonUtils();
+User user = jsonUtils.jsonString(User.class, "Json String");
+User user = jsonUtils.jsonString(User.class, byte[]);
+User user = jsonUtils.jsonString(User.class, InputStream);
+```
